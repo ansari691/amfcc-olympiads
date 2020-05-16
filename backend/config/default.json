@@ -1,0 +1,6 @@
+{
+    "mongoURI" : "mongodb+srv://ansari691:ansari691@cluster0-dagvv.mongodb.net/amfcc-olympiads?retryWrites=true&w=majority",
+    "jwtSecret" : "jwtSecret",
+    "username" : "amfcc",
+    "password" : "amfcc"
+}
