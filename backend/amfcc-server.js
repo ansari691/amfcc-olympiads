@@ -20,6 +20,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use('/api/schools/login', require('./routes/api/auth'))
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/students', require('./routes/api/students'))
 
 connectDB();
