@@ -1,4 +1,27 @@
-.App {
-  text-align: center;
+@media (max-width : 575px){
+  h1 {
+      font-size: 22px;
+  }
+  p {
+      font-size: 15px;
+  }
+  h4 {
+      font-size: 18px;
+  }
 }
 
+.forms{
+  width : 600px;
+}
+
+@media (max-width : 768px){
+  .forms{
+      width : 450px;
+  }
+}
+
+@media (max-width : 575px){
+  .forms{
+      width : 300px;
+  }
+}
