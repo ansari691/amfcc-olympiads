@@ -21,6 +21,8 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/students', require('./routes/api/students'))
+app.use('/api/students', require('./routes/api/students'));
+app.use('/api/exams', require('./routes/api/exams'));
+app.use('/api/questions', require('./routes/api/questions'));
 
 connectDB();

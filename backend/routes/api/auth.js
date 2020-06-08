@@ -18,7 +18,7 @@ router.get('/', adminAuth ,async (req, res) => {
     }
 });
 
-//logging in
+//logging in a school
 router.post('/school', [
     check('username','please enter a valid email').exists(),
     check('password','password is required').exists(),
@@ -55,7 +55,7 @@ router.post('/school', [
  
 });
 
-
+//logging in a student
 router.post('/student', [
     check('loginId','please enter login id').exists(),
     check('password','password is required').exists(),

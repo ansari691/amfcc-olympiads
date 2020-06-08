@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-//import { connect } from 'react-redux';
-//import PropTypes from 'prop-types'; 
-//import { login } from '../actions/auth';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types'; 
+import { schoolLogin } from '../actions/auth';
 import { MdTrendingFlat } from 'react-icons/md';
+import { Redirect } from 'react-router-dom';
 
-const Login = () => {  
+const Login = ( {schoolLogin, isAuthenticated}) => {  
 
 
   const [ loginFormData, setLoginFormData ] = useState({
@@ -19,17 +20,19 @@ const Login = () => {
   
   const onSubmit = async e =>{
     e.preventDefault();
-  
-    window.alert("logged in successfully");
+
+    schoolLogin(username, password);
+    
+    //window.alert("logged in successfully");
   }
 
-  // if(isAuthenticated){
-  //   return <Redirect to='/postList' />
-  // }
+  if(isAuthenticated){
+    return <Redirect to='/school/dashboard' />
+  }
   
   return (
     <div style={{ marginBottom : "100px"}} className="forms m-auto border shadow-lg">
-        <h3 className="text-center"> <MdTrendingFlat />Login</h3>
+        <h3 className="text-center"> <MdTrendingFlat />Admin Login</h3>
       <form className="px-5 py-3" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <label htmlFor="username">Username</label>
@@ -61,13 +64,13 @@ const Login = () => {
   );
 };
 
-// Login.propTypes = {
-//   login : PropTypes.func.isRequired,
-//   isAuthenticated : PropTypes.bool
-// };
+Login.propTypes = {
+  schoolLogin : PropTypes.func.isRequired,
+  isAuthenticated : PropTypes.bool
+};
 
-// const mapStateToProps = state => ({
-//   isAuthenticated : state.auth.isAuthenticated
-// })
+const mapStateToProps = state => ({
+  isAuthenticated : state.auth.isAuthenticated
+})
 
-export default Login;//connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { schoolLogin })(Login);

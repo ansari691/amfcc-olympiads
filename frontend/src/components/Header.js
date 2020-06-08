@@ -1,18 +1,19 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-// import PropTypes from "prop-types";
-// import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import {
   MdAccountBox,
   MdTrendingFlat,
   MdExitToApp,
-  MdAssignment
+  MdAssignment,
+  MdDashboard
 } from "react-icons/md";
 
 import { GoHome, GoPencil } from "react-icons/go";
 
 
-// import { logout } from "../actions/auth";
+import { logout } from "../actions/auth";
 import "./Header.css";
 
 const Header = () => {
@@ -35,10 +36,13 @@ const Header = () => {
 
   const authLink = (
     <Fragment>
-      <Link to="/postList">
+      <Link to="/">
         <GoHome /> <span id="hide">Home</span>
       </Link>
-      <Link to="/profile">
+      <Link to="/school/dashboard">
+        <MdDashboard /> <span id="hide">Dashboard</span>
+      </Link>
+      <Link to="/exams">
         <GoPencil /> <span id="hide">Exams</span>
       </Link>
       <Link to="/postAd">
@@ -52,18 +56,29 @@ const Header = () => {
 
   return (
     <nav className="d-flex justify-content-between mb-5">
+      <Link to={"/"} >
+        <img
+          src={
+               require("../images/logo1.png")
+           }
+          alt="logo"
+          height="70px"
+          width="300px"
+          style={{backgroundColor : "whitesmoke"}}
+        />
+      </Link>
       <div className="header">{authLink}</div>
     </nav>
   );
 };
 
-// Header.propTypes = {
-//   auth: PropTypes.object.isRequired,
-//   logout: PropTypes.func.isRequired,
-// };
+Header.propTypes = {
+  auth: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
+};
 
-// const mapStateToProps = (state) => ({
-//   auth: state.auth,
-// });
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
 
-export default Header;//connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout })(Header);

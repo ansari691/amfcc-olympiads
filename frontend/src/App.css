@@ -25,3 +25,12 @@
       width : 300px;
   }
 }
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+  /* experiment */
+  /* margin-top : -170px; */
+}

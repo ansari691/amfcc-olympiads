@@ -1,9 +1,12 @@
-.dashboard>p{
+.dashboard>p, .dashboard>a{
     padding : 30px;
     border : 1px dotted black;
     text-align : center;
     margin : 10px;
+    text-decoration: none;
+    color : inherit;
 }
+
 
 .dashboard>p:hover{
     cursor: pointer;
